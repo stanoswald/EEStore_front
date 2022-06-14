@@ -10,6 +10,11 @@ const routes = [
         name: 'index',
         component: () => import('@/view/Home/index'),
     },
+    {
+        path: '/item/:id',
+        name: 'item',
+        component: () => import('@/view/Item/index'),
+    },
 ]
 
 export const router = createRouter({

@@ -62,15 +62,11 @@
     </div>
 
     <div class="item-section">
-      <ul style="list-style: none">
+      <ul style="list-style: none" v-for="(item,key) in itemList" :key="key">
         <li>
-          <ItemCard></ItemCard>
-        </li>
-        <li>
-          <ItemCard></ItemCard>
-        </li>
-        <li>
-          <ItemCard></ItemCard>
+          <router-link :to="'/item/'+item.id">
+            <ItemCard :data="item"></ItemCard>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -81,10 +77,45 @@
 
 <script>
 import ItemCard from "@/components/ItemCard";
+import {getItemList} from "@/api/item";
 
 export default {
   name: 'HomePage',
-  components: {ItemCard}
+  components: {ItemCard},
+  data(){
+    return{
+      itemList:[
+        {
+          id:'1111',
+          cover:"https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd/gallery/wd-black-sn850-nvme-ssd-front.png.wdthumb.1280.1280.webp",
+          name:"WD_BLACK SN850 NVMe™ SSD",
+          price:222
+        },
+        {
+          id:'2222',
+          cover:"https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd/gallery/wd-black-sn850-nvme-ssd-front.png.wdthumb.1280.1280.webp",
+          name:"WD_BLACK SN850 NVMe™ SSD",
+          price:222
+        },
+        {
+          id:'33333',
+          cover:"https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd/gallery/wd-black-sn850-nvme-ssd-front.png.wdthumb.1280.1280.webp",
+          name:"WD_BLACK SN850 NVMe™ SSD",
+          price:222
+        }
+      ]
+    }
+  },
+  created(){
+
+  },
+  methods:{
+    init(){
+      getItemList().then(response =>{
+        this.itemList = response.data
+      })
+    }
+  }
 
 }
 
