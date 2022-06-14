@@ -40,7 +40,7 @@
         <User/>
       </el-icon>
     </el-menu-item>
-    
+
     <div class="moveblock" ref="moveblock"></div>
   </el-menu>
 </template>
