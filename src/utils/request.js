@@ -1,4 +1,5 @@
 import axios from "axios";
+import {getToken} from "@/utils/auth";
 
 const service = axios.create({
     timeout: 5000,
@@ -6,6 +7,9 @@ const service = axios.create({
 
 service.interceptors.request.use(
     (config) => {
+        if (getToken('user_token')) {
+            config.headers['token'] = getToken('user_token');
+        }
         return config;
     },
     (error) => {
