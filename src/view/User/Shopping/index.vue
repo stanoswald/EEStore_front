@@ -1,18 +1,30 @@
 <template>
   <div>
-
+    <el-row>
+      <el-card v-for="(item,key) in itemList" :key="key">
+        <el-card>
+          <img :src="item.cover" style="height: 300px"/>
+          {{item.name}}
+          价格:{{item.price}}円
+          <button>-</button>
+          1
+          <button>+</button>
+        </el-card>
+      </el-card>
+    </el-row>
+    总价:{{sum}}
+    <el-button type="primary">提交</el-button>
   </div>
 </template>
 
 <script>
-import {setToken} from "@/utils/auth";
-import {getItemList} from "@/api/item";
 import {getShoppingList} from "@/api/order";
 
 export default {
   name: "ShoppingPage",
   data(){
     return{
+      sum:200,
       itemList:[
         {
           id:'1111',
