@@ -17,19 +17,19 @@ export function getItemList() {
 }
 
 // 添加至购物车
-export function addToShopping(userId,itemId) {
+export function addToShopping(itemId) {
     return request({
         url: `http://enten-forget:9000/addToShopping/`,
         method: "post",
-        data:{userId,itemId}
+        data:{itemId}
     });
 }
 
-// 添加至购物车
-export function submitOrder(userId,itemIdList) {
+// 提交订单
+export function submitOrder(itemIdList) {
     return request({
         url: `http://enten-forget:9000/addToShopping/`,
         method: "post",
-        data:{userId,itemIdList}
+        data:{itemIdList}
     });
 }

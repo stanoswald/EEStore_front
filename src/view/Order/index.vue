@@ -26,7 +26,7 @@ export default {
   },
   methods:{
     init(){
-      getShoppingList(this.$route.params.id).then(response =>{
+      getShoppingList().then(response =>{
         this.shoppingList = response.data
       })
     }

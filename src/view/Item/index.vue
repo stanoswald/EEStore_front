@@ -30,6 +30,7 @@
 
 <script>
 import {addToShopping, getItemById } from "@/api/item";
+import {getToken} from "@/utils/auth";
 
 export default {
   name: "GoodsPage",
@@ -58,11 +59,11 @@ export default {
     },
 
     addShopping(){
-      const userId = this.$cookies.get("user_id")
+      const token = getToken("user_token")
       console.log("=============addShopping===================")
-      console.log(userId)
+      console.log(token)
       console.log(this.item.itemId)
-      addToShopping(userId,this.item.itemId).then(response =>{
+      addToShopping(token,this.item.itemId).then(response =>{
         if (response.data.code === 200){
           this.$message({
             message:response.data.message,
@@ -78,11 +79,11 @@ export default {
     },
 
     buy(){
-      const userId = this.$cookies.get("user_id")
+      const token = getToken("User_token")
       const itemIdList = []
       itemIdList.push(this.item.itemId)
       console.log("=============buy===================")
-      console.log(userId)
+      console.log(token)
       console.log(itemIdList)
       this.$router.push("/order/"+this.item.itemId)
       // submitOrder(userId,itemIdList).then(response =>{

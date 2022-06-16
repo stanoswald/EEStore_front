@@ -31,20 +31,20 @@
       </el-icon>
     </el-menu-item>
     <el-menu-item index="7">
-      <el-icon class="user-menu">
-        <ShoppingCart/>
-      </el-icon>
+      <router-link :to="{name: 'shopping'}" >
+        <el-icon class="user-menu">
+          <ShoppingCart/>
+        </el-icon>
+      </router-link>
     </el-menu-item>
     <el-menu-item index="8" style="margin-right: 20vh;">
 
-      <el-icon class="user-menu">
-        <router-link :to="{name: 'login'}" v-if="this.$cookies.get('user_id')!==null">
+      <router-link :to="{name: 'personal'}">
+        <el-icon class="user-menu" v-if="!avatar">
           <User/>
-        </router-link>
-        <router-link :to="{name: 'register'}" v-else>
-          <User/>
-        </router-link>
-      </el-icon>
+        </el-icon>
+        <el-avatar :src="avatar" v-else></el-avatar>
+      </router-link>
     </el-menu-item>
 
     <div class="moveblock" ref="moveblock"></div>
@@ -52,8 +52,23 @@
 </template>
 
 <script>
+import {getToken} from "@/utils/auth";
+
 export default {
-  name: "navBar"
+  name: "navBar",
+  data(){
+    return {
+      avatar:''
+    }
+  },
+  created() {
+    this.getUserInfo()
+  },
+  methods:{
+    getUserInfo(){
+      this.avatar = getToken("avatar")
+    }
+  }
 }
 </script>
 

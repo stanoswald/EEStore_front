@@ -34,6 +34,7 @@
 import ItemCard from "@/components/ItemCard";
 import {getItemList} from "@/api/item";
 import NavBar from "@/components/navBar";
+import {setToken} from "@/utils/auth";
 
 export default {
   name: 'HomePage',
@@ -63,7 +64,8 @@ export default {
     }
   },
   created(){
-    this.$cookies.set("user_id","test")
+    setToken('user_token',"test")
+    setToken("avatar",'https://images6.alphacoders.com/415/thumb-1920-415519.jpg')
   },
   methods:{
     init(){

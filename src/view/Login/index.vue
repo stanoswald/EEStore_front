@@ -34,12 +34,12 @@
 
 <script>
 import {getLoginUserInfo, subjectLogin} from "@/api/user";
+import {setToken} from "@/utils/auth";
 
 export default {
   name: "loginPage",
   data() {
     return {
-      //封装登录手机号和密码对象
       user: {
         mobile: '',
         password: ''
@@ -49,29 +49,23 @@ export default {
     }
   },
   methods: {
-    //登录的方法
     submitLogin(){
-      //第一步,调用接口进行登录,返回token字符串
       subjectLogin(this.user)
           .then(response =>{
-            //第二步,获取token字符串放到cookie里面
-            //第一个参数:cookie名称,第二个参数:值,第三个:作用范围
-            this.$cookies.set('user_id',response.data.data.id,{domain:'localhost'})
-            //第三步,创建拦截器(utils/request)
-            //第四步 调用接口根据token获取数据信息,为了首页面显示
-            getLoginUserInfo()
+            const token = response.data.data.token
+            setToken("user_token",token)
+            getLoginUserInfo(token)
                 .then(response =>{
                   this.loginInfo = JSON.stringify(response.data.data.userInfo)
-                  //获取返回用户信息,放到cookie中
-                  this.$cookies.set('user_token',this.loginInfo,{domain: 'localhost'})
-                  //跳转到首页面
+                  setToken("user_id",this.loginInfo.userId)
+                  setToken("avatar",this.loginInfo.avatar)
+                  setToken("user_name",this.loginInfo.username)
                   window.location.href = "/"
                 })
 
           })
     },
     checkPhone(rule, value, callback) {
-      //debugger
       if (!(/^1[34578]\d{9}$/.test(value))) {
         return callback(new Error('手机号码格式不正确'))
       }

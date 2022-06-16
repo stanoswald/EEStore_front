@@ -5,6 +5,7 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 import {router} from './router'
 import vueCookies from 'vue-cookies'
+import './permission'
 
 const app = createApp(App)
 

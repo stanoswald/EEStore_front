@@ -27,16 +27,26 @@ const routes = [
         component: () => import('@/App'),
         children:[
             {
-                path: 'login',
-                name: 'login',
-                component: () => import('@/view/User/Login/index'),
+                path: 'personal',
+                name: 'personal',
+                component: () => import('@/view/User/Personal/index'),
             },
             {
-                path: 'register',
-                name: 'register',
-                component: () => import('@/view/User/Register/index'),
+                path: 'shopping',
+                name: 'shopping',
+                component: () => import('@/view/User/Shopping/index'),
             },
         ]
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/view/Login/index'),
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: () => import('@/view/Register/index'),
     },
     {
         path: '/order/:id',

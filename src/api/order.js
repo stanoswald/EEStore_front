@@ -1,9 +1,9 @@
 import request from "@/utils/request";
 
 // 获取购物车信息
-export function getShoppingList(userId) {
+export function getShoppingList() {
     return request({
-        url: `http://enten-forget:9000/getShoppingList`+userId,
+        url: `http://enten-forget:9000/getShoppingList`,
         method: 'get'
     })
 }

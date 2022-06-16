@@ -77,31 +77,25 @@ export default {
     }
   },
   methods: {
-    //之策提交的方法
     submitRegister(){
       registerMember(this.params)
           .then(response =>{
-            //提示
             this.$message({
               type: 'success',
               message: response.data.message
             })
-            ///跳转登录界面
-            this.$router.push({path: '/login'})
+            this.$router.push({name: 'login'})
           })
     },
-    //通过输入的手机号发送验证码
     getCodeFun(){
       // registerApi.sendCode(this.params.mobile)
 
-      //调用倒计时的方法
       this.sending = false
       this.timeDown()
 
     },
     //倒计时方法
     timeDown() {
-      //每一秒执行执行setInterval,其中倒计时--
       let result = setInterval(() => {
         --this.second;
         this.codeTest = this.second
@@ -116,7 +110,6 @@ export default {
     },
 
     checkPhone(rule, value, callback) {
-      //debugger
       if (!(/^1[34578]\d{9}$/.test(value))) {
         return callback(new Error('手机号码格式不正确'))
       }
