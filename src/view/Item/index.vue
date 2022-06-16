@@ -58,7 +58,7 @@ export default {
     },
 
     addShopping(){
-      const userId = this.$cookies.get("user_token")
+      const userId = this.$cookies.get("user_id")
       console.log("=============addShopping===================")
       console.log(userId)
       console.log(this.item.itemId)
@@ -78,7 +78,7 @@ export default {
     },
 
     buy(){
-      const userId = this.$cookies.get("user_token")
+      const userId = this.$cookies.get("user_id")
       const itemIdList = []
       itemIdList.push(this.item.itemId)
       console.log("=============buy===================")

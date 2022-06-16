@@ -36,8 +36,14 @@
       </el-icon>
     </el-menu-item>
     <el-menu-item index="8" style="margin-right: 20vh;">
+
       <el-icon class="user-menu">
-        <User/>
+        <router-link :to="{name: 'login'}" v-if="this.$cookies.get('user_id')!==null">
+          <User/>
+        </router-link>
+        <router-link :to="{name: 'register'}" v-else>
+          <User/>
+        </router-link>
       </el-icon>
     </el-menu-item>
 

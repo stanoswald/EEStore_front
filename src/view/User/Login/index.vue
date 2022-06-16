@@ -56,7 +56,7 @@ export default {
           .then(response =>{
             //第二步,获取token字符串放到cookie里面
             //第一个参数:cookie名称,第二个参数:值,第三个:作用范围
-            this.$cookies.set('user_token',response.data.data.token,{domain:'localhost'})
+            this.$cookies.set('user_id',response.data.data.id,{domain:'localhost'})
             //第三步,创建拦截器(utils/request)
             //第四步 调用接口根据token获取数据信息,为了首页面显示
             getLoginUserInfo()

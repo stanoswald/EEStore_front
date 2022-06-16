@@ -63,7 +63,7 @@ export default {
     }
   },
   created(){
-    this.$cookies.set("user_token","test")
+    this.$cookies.set("user_id","test")
   },
   methods:{
     init(){
