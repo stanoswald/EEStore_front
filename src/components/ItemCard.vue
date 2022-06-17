@@ -1,12 +1,13 @@
 <template>
   <el-card shadow="hover">
-    <img :src="data.cover"
-        alt="test"/>
+    <img :src="data.product_img"
+        alt=""/>
 
     <div style="text-align: center">
-      <span>{{ data.name }}</span>
+      <span>{{ data.product_name }}</span>
       <p>500G | 1T | 2T</p>
-      <p>￥{{ data.price }}</p>
+      <p>￥{{ data.item_list[0].item_price }}</p>
+      <p>{{ data.item_list[0].item_discount }}折</p>
     </div>
   </el-card>
 </template>

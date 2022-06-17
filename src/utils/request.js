@@ -7,8 +7,9 @@ const service = axios.create({
 
 service.interceptors.request.use(
     (config) => {
+        config.headers['Content-Type'] = 'multipart/form-data'
         if (getToken('user_token')) {
-            config.headers['token'] = getToken('user_token');
+            config.headers.Authorization = 'Bearer '+getToken('user_token');
         }
         return config;
     },

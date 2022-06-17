@@ -19,7 +19,7 @@
     <div class="item-section">
       <ul style="list-style: none" v-for="(item,key) in itemList" :key="key">
         <li>
-          <router-link :to="'/item/'+item.id">
+          <router-link :to="'/item/'+item.cat_id">
             <ItemCard :data="item"></ItemCard>
           </router-link>
         </li>
@@ -34,43 +34,26 @@
 import ItemCard from "@/components/ItemCard";
 import {getItemList} from "@/api/item";
 import NavBar from "@/components/navBar";
-import {setToken} from "@/utils/auth";
+// import {setToken} from "@/utils/auth";
 
 export default {
   name: 'HomePage',
   components: {NavBar, ItemCard},
   data(){
     return{
-      itemList:[
-        {
-          id:'1111',
-          cover:"https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd/gallery/wd-black-sn850-nvme-ssd-front.png.wdthumb.1280.1280.webp",
-          name:"WD_BLACK SN850 NVMe™ SSD",
-          price:222
-        },
-        {
-          id:'2222',
-          cover:"https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd/gallery/wd-black-sn850-nvme-ssd-front.png.wdthumb.1280.1280.webp",
-          name:"WD_BLACK SN850 NVMe™ SSD",
-          price:222
-        },
-        {
-          id:'33333',
-          cover:"https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd/gallery/wd-black-sn850-nvme-ssd-front.png.wdthumb.1280.1280.webp",
-          name:"WD_BLACK SN850 NVMe™ SSD",
-          price:222
-        }
-      ]
+      itemList:[]
     }
   },
   created(){
-    setToken('user_token',"test")
-    setToken("avatar",'https://images6.alphacoders.com/415/thumb-1920-415519.jpg')
+    this.init()
+    // setToken('user_token',"test")
+    // setToken("avatar",'https://images6.alphacoders.com/415/thumb-1920-415519.jpg')
   },
   methods:{
     init(){
       getItemList().then(response =>{
-        this.itemList = response.data
+        this.itemList = response.data.productList
+        console.log(this.itemList)
       })
     }
   }

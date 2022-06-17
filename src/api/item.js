@@ -1,17 +1,28 @@
 import request from "@/utils/request";
+import config from "@/config/config";
 
 // 根据id获取商品详细信息
 export function getItemById(id) {
     return request({
-        url: `http://enten-forget:9000/getItemById/`+id,
-        method: "get",
+        url: config.BASE_URL+`/public/api/product/getItemListByProId`,
+        method: "post",
+        data: { id }
+    });
+}
+
+// 根据分类id获取列表
+export function getItemListByCategory(categoryId) {
+    return request({
+        url: config.BASE_URL+`/public/api/product/getProductByCatId`,
+        method: "post",
+        data: {categoryId}
     });
 }
 
 // 获取所有信息
 export function getItemList() {
     return request({
-        url: `http://enten-forget:9000/getItemList/`,
+        url: config.BASE_URL+`/public/api/product/getProductList`,
         method: "get",
     });
 }
@@ -19,7 +30,7 @@ export function getItemList() {
 // 添加至购物车
 export function addToShopping(itemId) {
     return request({
-        url: `http://enten-forget:9000/addToShopping/`,
+        url: config.BASE_URL+`/addToShopping`,
         method: "post",
         data:{itemId}
     });
@@ -28,7 +39,7 @@ export function addToShopping(itemId) {
 // 提交订单
 export function submitOrder(itemIdList) {
     return request({
-        url: `http://enten-forget:9000/addToShopping/`,
+        url: config.BASE_URL+`/addToShopping/`,
         method: "post",
         data:{itemIdList}
     });
