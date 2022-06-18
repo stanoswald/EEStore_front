@@ -7,12 +7,11 @@
     </div>
     <div class="sign-up-container">
       <el-form ref="userForm" :model="user">
-        <el-form-item class="input-prepend restyle" prop="mobile" :rules="[
-            {required: true, message: '请输入手机号码', trigger: 'blur' },
-            {validator:checkPhone, trigger: 'blur'}
+        <el-form-item class="input-prepend restyle" prop="username" :rules="[
+            {required: true, message: '请输入用户名', trigger: 'blur' },
             ]">
           <div>
-            <el-input type="text" placeholder="手机号" v-model="user.mobile"/>
+            <el-input type="text" placeholder="用户名" v-model="user.username"/>
             <i class="iconfont icon-phone"/>
           </div>
         </el-form-item>
@@ -41,7 +40,7 @@ export default {
   data() {
     return {
       user: {
-        mobile: '',
+        username: '',
         password: ''
       },
       //用户信息
@@ -50,26 +49,19 @@ export default {
   },
   methods: {
     submitLogin(){
-      subjectLogin(this.user)
-          .then(response =>{
-            const token = response.data.data.token
+      subjectLogin(this.user).then(response =>{
+            const token = response.data.token
             setToken("user_token",token)
-            getLoginUserInfo(token)
+            getLoginUserInfo()
                 .then(response =>{
-                  this.loginInfo = JSON.stringify(response.data.data.userInfo)
-                  setToken("user_id",this.loginInfo.userId)
+                  console.log(response.data)
+                  this.loginInfo = response.data.user
+                  setToken("user_id",this.loginInfo.uid)
                   setToken("avatar",this.loginInfo.avatar)
                   setToken("user_name",this.loginInfo.username)
-                  window.location.href = "/"
+                  // window.location.href = "/"
                 })
-
           })
-    },
-    checkPhone(rule, value, callback) {
-      if (!(/^1[34578]\d{9}$/.test(value))) {
-        return callback(new Error('手机号码格式不正确'))
-      }
-      return callback()
     }
   }
 }

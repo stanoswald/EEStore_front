@@ -19,7 +19,7 @@
     <div class="item-section">
       <ul style="list-style: none" v-for="(item,key) in itemList" :key="key">
         <li>
-          <router-link :to="'/item/'+item.cat_id">
+          <router-link :to="'/item/'+item.product_id">
             <ItemCard :data="item"></ItemCard>
           </router-link>
         </li>

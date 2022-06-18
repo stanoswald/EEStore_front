@@ -12,7 +12,7 @@ export function getShoppingList() {
 // 根据id获取订单信息
 export function getOrder(orderId) {
     return request({
-        url: config.BASE_URL+`/user/api/orderr/get/`+orderId,
+        url: config.BASE_URL+`/user/api/order/get/${orderId}`,
         method: 'get'
     })
 }

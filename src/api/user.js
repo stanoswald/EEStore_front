@@ -22,7 +22,7 @@ export function subjectLogin(userInfo) {
 //根据token获取用户信息
 export function getLoginUserInfo() {
     return request({
-        url: config.BASE_URL+`/eduCenter/member/getMemberInfo`,
+        url: config.BASE_URL+`/user/api/get`,
         method: 'get',
     })
 }

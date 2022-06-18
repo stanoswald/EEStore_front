@@ -2,11 +2,11 @@ import request from "@/utils/request";
 import config from "@/config/config";
 
 // 根据id获取商品详细信息
-export function getItemById(id) {
+export function getItemById(pro_id) {
     return request({
         url: config.BASE_URL+`/public/api/product/getItemListByProId`,
         method: "post",
-        data: { id }
+        data: { pro_id }
     });
 }
 
