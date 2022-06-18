@@ -59,7 +59,7 @@ export default {
                   setToken("user_id",this.loginInfo.uid)
                   setToken("avatar",this.loginInfo.avatar)
                   setToken("user_name",this.loginInfo.username)
-                  // window.location.href = "/"
+                  window.location.href = "/"
                 })
           })
     }
