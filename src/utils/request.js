@@ -28,6 +28,14 @@ service.interceptors.response.use(
         }
     },
     (error) => {
+        if(error.response.data.code === 400){
+            console.log(error.response.data)
+            alert(error.response.data.data.info)
+            this.$message({
+                message:error.response.data.data.info,
+                type:'success'
+            })
+        }
         console.log(error);
         return Promise.reject();
     }

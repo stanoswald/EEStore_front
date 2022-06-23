@@ -28,11 +28,11 @@ export function getItemList() {
 }
 
 // 添加至购物车
-export function addToShopping(itemId) {
+export function addToShopping(item_id,item_count) {
     return request({
-        url: config.BASE_URL+`/addToShopping`,
+        url: config.BASE_URL+`/user/api/cart/addCart`,
         method: "post",
-        data:{itemId}
+        data:{item_id,item_count}
     });
 }
 
