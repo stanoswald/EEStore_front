@@ -4,8 +4,11 @@ import config from "@/config/config";
 // 注册方法
 export function registerMember(formItem) {
     return request({
-        url: config.BASE_URL+`/register`,
+        url: config.BASE_URL+`/auth/register`,
         method: 'post',
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
         data:formItem
     })
 }
@@ -15,6 +18,9 @@ export function subjectLogin(userInfo) {
     return request({
         url: config.BASE_URL+`/auth/login`,
         method: 'post',
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
         data:userInfo
     })
 }
@@ -23,6 +29,9 @@ export function subjectLogin(userInfo) {
 export function getLoginUserInfo() {
     return request({
         url: config.BASE_URL+`/user/api/get`,
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
         method: 'get',
     })
 }

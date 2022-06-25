@@ -34,7 +34,6 @@
 import ItemCard from "@/components/ItemCard";
 import {getItemList} from "@/api/item";
 import NavBar from "@/components/navBar";
-// import {setToken} from "@/utils/auth";
 
 export default {
   name: 'HomePage',
@@ -46,13 +45,11 @@ export default {
   },
   created(){
     this.init()
-    // setToken('user_token',"test")
-    // setToken("avatar",'https://images6.alphacoders.com/415/thumb-1920-415519.jpg')
   },
   methods:{
     init(){
       getItemList().then(response =>{
-        this.itemList = response.data.productList
+        this.itemList = response.data.product_list
         console.log(this.itemList)
       })
     }
