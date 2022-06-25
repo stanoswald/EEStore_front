@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import {getLoginUserInfo, subjectLogin} from "@/api/user";
+import {getUserInfo, subjectLogin} from "@/api/user";
 import {setToken} from "@/utils/auth";
 
 export default {
@@ -52,7 +52,7 @@ export default {
       subjectLogin(this.user).then(response =>{
             const token = response.data.token
             setToken("user_token",token)
-            getLoginUserInfo()
+        getUserInfo()
                 .then(response =>{
                   console.log(response.data)
                   this.loginInfo = response.data.user

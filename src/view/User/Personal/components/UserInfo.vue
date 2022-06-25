@@ -18,7 +18,7 @@
 
 <script>
 
-import {getLoginUserInfo} from "@/api/user";
+import { getUserInfo} from "@/api/user";
 
 export default {
   name: 'UserInfo',
@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     getUserInfo() {
-      getLoginUserInfo().then(response => {
+      getUserInfo().then(response => {
         console.log(response)
         this.userInfo = response.data
         console.log(this.userInfo)

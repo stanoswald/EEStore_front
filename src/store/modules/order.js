@@ -2,10 +2,12 @@ const state = {
     order:{}
 }
 const mutations = {
-    setOrder(itemPrice,address,itemList){
-        state.order.item_price = itemPrice
-        state.order.address = address
-        state.order.item_list = itemList
+    setOrder(state,order){
+        console.log("itemPrice")
+        console.log(order)
+        state.order.item_price = order.itemPrice
+        state.order.address = order.address
+        state.order.item_list = order.itemList
     },
 
     clear(){

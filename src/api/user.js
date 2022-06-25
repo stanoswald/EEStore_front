@@ -26,7 +26,7 @@ export function subjectLogin(userInfo) {
 }
 
 //根据token获取用户信息
-export function getLoginUserInfo() {
+export function getUserInfo() {
     return request({
         url: config.BASE_URL+`/user/api/get`,
         headers: {
