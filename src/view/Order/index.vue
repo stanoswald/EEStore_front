@@ -10,7 +10,7 @@
 
 <script>
 
-import {getShoppingList} from "@/api/order";
+import {createOrder} from "@/api/order";
 
 export default {
   name: "orderPage",
@@ -22,12 +22,15 @@ export default {
     }
   },
   created() {
-
+    this.init()
   },
   methods:{
     init(){
-      getShoppingList().then(response =>{
-        this.shoppingList = response.data
+      console.log(this.$store.state.order)
+    },
+    buy(){
+      createOrder(this.sum,this.address,this.orderList).then(response =>{
+          console.log(response)
       })
     }
   }

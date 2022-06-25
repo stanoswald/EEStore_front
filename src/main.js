@@ -5,12 +5,14 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 import {router} from './router'
 import vueCookies from 'vue-cookies'
+import store from './store/index'
 import './permission'
 
 const app = createApp(App)
 
 app.use(ElementPlus)
 app.use(router)
+app.use(store)
 
 
 app.config.globalProperties.$cookies = vueCookies

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {createOrder, getShoppingList} from "@/api/order";
+import { getShoppingList} from "@/api/order";
 
 export default {
   name: "ShoppingPage",
@@ -49,9 +49,16 @@ export default {
     },
     buy(){
       this.orderList = this.itemList.filter(item=>item.isSet===true)
-      createOrder(this.sum,this.address,this.orderList).then(response =>{
-          console.log(response)
+      // createOrder(this.sum,this.address,this.orderList).then(response =>{
+      //     console.log(response)
+      // })
+      this.$store.commit("order/setOrder", {
+        itemPrice:this.sum,
+        address:this.address,
+        itemList:this.orderList
       })
+      console.log(this.$store.state.order)
+      this.$router.push({name:"order"})
     }
   }
 }

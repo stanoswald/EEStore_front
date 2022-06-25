@@ -36,6 +36,11 @@ const routes = [
                 name: 'shopping',
                 component: () => import('@/view/User/Shopping/index'),
             },
+            {
+                path: 'order',
+                name: 'order',
+                component: () => import('@/view/Order/index'),
+            }
         ]
     },
     {
@@ -47,12 +52,7 @@ const routes = [
         path: '/register',
         name: 'register',
         component: () => import('@/view/Register/index'),
-    },
-    {
-        path: '/order/:id',
-        name: 'order',
-        component: () => import('@/view/Order/index'),
-    },
+    }
 ]
 
 export const router = createRouter({
