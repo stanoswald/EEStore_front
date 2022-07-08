@@ -9,6 +9,17 @@ export function getShoppingList() {
     })
 }
 
+// 查看订单信息
+export function getOrderList() {
+    return request({
+        url: config.BASE_URL+`/user/api/order/get/all`,
+        method: 'get',
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
+    })
+}
+
 // 创建订单
 export function createOrder(item_price,address,item_list) {
     return request({

@@ -42,6 +42,18 @@ export function addToShopping(item_id,item_count) {
     });
 }
 
+// 根据id删除购物车物品
+export function deleteShopping(cart_id) {
+    return request({
+        url: config.BASE_URL+`/user/api/cart/delete`,
+        method: "delete",
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
+        data:{cart_id}
+    });
+}
+
 // 提交订单
 export function submitOrder(itemIdList) {
     return request({

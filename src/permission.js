@@ -7,7 +7,7 @@ router.beforeEach((to, from, next) => {
         if (getToken('user_token')){
             next(true);
         }else{
-            next('/login')
+            next({path:'login'})
         }
     }else{
         next(true)

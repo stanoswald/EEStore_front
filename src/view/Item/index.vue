@@ -74,8 +74,10 @@ export default {
 
     addShopping(){
       console.log("=============addShopping===================")
-      console.log(this.num)
-      console.log(this.item.item_list[this.sort].item_id)
+      if(!getToken('user_token')){
+        this.$router.push({name:'login'})
+        return;
+      }
       addToShopping(this.item.item_list[this.sort].item_id,this.num).then(response =>{
         if (response.code === 200){
           this.$message({
@@ -93,6 +95,10 @@ export default {
     },
 
     buy(){
+      if(!getToken('user_token')){
+        this.$router.push({name:'login'})
+        return;
+      }
       const token = getToken("User_token")
       const itemIdList = []
       itemIdList.push(this.item.itemId)
