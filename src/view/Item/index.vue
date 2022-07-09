@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div>
+    <nav-bar></nav-bar>
+    <div style="margin-top: 10px;margin-left: 10px">
       <el-row :gutter="20">
         <el-col :span="14">
           <el-card>
-            {{this.$route.params.id}}
             <h1>{{item.product_name}}</h1>
             <el-radio-group v-model="sort">
               <el-radio-button v-for="(sort,key) in item.item_list" :key="key" :label="key">{{sort.item_option}}</el-radio-button>
@@ -51,9 +51,11 @@
 <script>
 import {addToShopping, getItemById} from "@/api/item";
 import {getToken} from "@/utils/auth";
+import NavBar from "@/components/navBar";
 
 export default {
   name: "GoodsPage",
+  components: {NavBar},
   data(){
     return{
       sort: 0,

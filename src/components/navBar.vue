@@ -1,16 +1,14 @@
 <template>
   <el-menu
-      :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
       :ellipsis="false"
-      @select="handleSelect"
   >
     <el-menu-item id="menu-logo">
-      <div>
+      <router-link :to="{name:'index'}">
         <img src='../../public/logo.svg' style="width: 64px;" alt="Home"/>
-      </div>
       <span id="menu-logo-text">EEStore</span>
+      </router-link>
     </el-menu-item>
 
     <el-menu-item index="1">机械硬盘</el-menu-item>

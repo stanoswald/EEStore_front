@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nav-bar></nav-bar>
     <el-main>
       <el-table
           :data="itemList"
@@ -56,9 +57,11 @@
 <script>
 import {getShoppingList} from "@/api/order";
 import {deleteShopping} from "@/api/item";
+import NavBar from "@/components/navBar";
 
 export default {
   name: "ShoppingPage",
+  components: {NavBar},
   data() {
     return {
       itemList: [],
@@ -108,7 +111,7 @@ export default {
         address: this.address,
         itemList: this.selectList
       })
-      this.$router.push({name: "order"})
+      this.$router.push({name: "createOrder"})
     }
   }
 }

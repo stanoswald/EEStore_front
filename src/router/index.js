@@ -15,11 +15,6 @@ const routes = [
         name: 'item',
         component: () => import('@/view/Item/index'),
     },
-    {
-        path: '/order/:id',
-        name: 'order',
-        component: () => import('@/view/Order/index'),
-    },
 
     {
         path: '/user',
@@ -39,8 +34,26 @@ const routes = [
             {
                 path: 'order',
                 name: 'order',
-                component: () => import('@/view/Order/index'),
-            }
+                component: () => import('@/App'),
+                children:[
+                    {
+                        path: 'create',
+                        name: 'createOrder',
+                        component: () => import('@/view/User/Order/Create'),
+                    },
+                    {
+                        path: 'getAll',
+                        name: 'getAllOrder',
+                        component: () => import('@/view/User/Order/GetAll/index'),
+                    },
+                    {
+                        path: 'getWaiting',
+                        name: 'getWaiting',
+                        component: () => import('@/view/User/Order/Waiting/index'),
+                    }
+                ]
+            },
+
         ]
     },
     {

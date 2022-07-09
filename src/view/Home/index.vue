@@ -61,7 +61,12 @@ export default {
 
 
 <style lang="scss">
-
+.router-link-active {
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
+}
 * {
   margin: 0;
 }

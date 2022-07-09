@@ -1,17 +1,27 @@
 <template>
   <div>
     <h1>订单确认</h1>
-    <h3>用户名:{{user}}</h3>
-    <h3>电话:{{tel}}</h3>
-    <h3>地址:{{address}}</h3>
-      <el-card v-for="(item,key) in shoppingList" :key="key">
-        <el-card>
-          <img :src="item.product_img" style="height: 300px"/>
+    <el-card>
+      <h3>用户名:{{user}}</h3>
+      <h3>电话:{{tel}}</h3>
+      <h3>地址:</h3><el-input v-model="address"></el-input>
+    </el-card>
+    <el-row>
+      <el-col :span="4"/>
+      <el-col :span="10">
+        <el-card v-for="(item,key) in shoppingList" :key="key">
+            <img :src="item.product_img" style="height: 300px"/>
+          <h3>{{item.product_name}}</h3>
+          <div style="width: 100%;text-align: right">
+            <h3>价格:{{item.item_price}}円 × {{item.item_count}}</h3>
+          </div>
         </el-card>
-        <h3>{{item.product_name}}</h3>
-        <h3>价格:{{item.item_price}}円 × {{item.item_count}}</h3>
-      </el-card>
-    <el-button type="primary" @click="buy">购买</el-button>
+      </el-col>
+    </el-row>
+    <div style="width: 100%;text-align: right">
+      <h1>总价:{{this.price}}</h1>
+      <el-button type="primary" @click="buy">购买</el-button>
+    </div>
   </div>
 </template>
 
@@ -43,7 +53,7 @@ export default {
       })
       console.log("=====order=====")
       console.log(this.$store.state.order.order)
-      this.price = this.$store.state.order.order.price
+      this.price = this.$store.state.order.order.item_price
       this.address = this.$store.state.order.order.address
       this.shoppingList = this.$store.state.order.order.item_list
     },
