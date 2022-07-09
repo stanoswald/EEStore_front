@@ -1,20 +1,24 @@
 <template>
   <el-card shadow="hover">
-    <img
-        src="https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd/gallery/wd-black-sn850-nvme-ssd-front.png.wdthumb.1280.1280.webp"
-        alt="test"/>
-
+    <img :src="data.product_img"
+        alt=""/>
     <div style="text-align: center">
-      <span>WD_BLACK SN850 NVMe™ SSD</span>
+      <span>{{ data.product_name }}</span>
       <p>500G | 1T | 2T</p>
-      <p>￥999</p>
+      <p style="font-size: 30px;color: red">￥{{ data.mini_item_price }}</p>
+<!--      <p>{{ data.mini_item_discount }}折</p>-->
     </div>
   </el-card>
 </template>
 
 <script>
 export default {
-  name: "ItemCard"
+  name: "ItemCard",
+  props:{
+    data: {
+      type:Object
+    }
+  }
 }
 </script>
 
