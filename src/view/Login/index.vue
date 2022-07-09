@@ -28,7 +28,7 @@
                 </div>
               </el-form-item>
               <div class="btn">
-                <input type="button" class="sign-in-button" value="登录" @click="submitLogin()">
+                <el-button plain @click="submitLogin()">登录</el-button>
               </div>
             </el-form>
           </div>
@@ -76,6 +76,12 @@ export default {
 
 <style scoped>
 .title{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sign-up-container{
   text-align: center;
 }
 </style>

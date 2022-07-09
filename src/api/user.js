@@ -47,3 +47,15 @@ export function getUserInfo() {
         method: 'get',
     })
 }
+
+//根据修改用户头像
+export function chgAvatar(img) {
+    return request({
+        url: config.BASE_URL+`/user/api/upload/img`,
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
+        method: 'post',
+        data:{img}
+    })
+}
