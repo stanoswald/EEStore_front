@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-bar></nav-bar>
-    <el-row style="margin-left: 20px;margin-top: 20px">
+    <el-row style="margin-left: 20px;margin-top: 20px;color: #666666">
       <el-col :span="5">
         <h2>订单管理</h2>
         <div style="margin-left: 30px;margin-top: 10px">

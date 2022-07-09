@@ -71,5 +71,64 @@ export default {
 </script>
 
 <style scoped>
+a{
+  text-decoration: none;
+}
+* {
+  margin: 0;
+}
 
+html {
+  background-color: #f0f1f2;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+#menu-logo {
+  margin-left: 20vh;
+  --el-menu-hover-bg-color: none;
+  --el-menu-hover-text-color: none;
+}
+
+#menu-logo-text {
+  font-size: 40px;
+  margin: 0 20px 6px 6px;
+  font-weight: bold;
+  color: #666666;
+}
+
+.user-menu svg {
+  width: 100px;
+  height: 100px;
+}
+
+
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 150px;
+  margin: 0;
+  text-align: center;
+}
+
+.item-section ul {
+  display: inline-block;
+  padding: 0;
+}
+
+.item-section li {
+  height: 420px;
+  margin-bottom: 16px;
+
+  float: left;
+  padding: 20px 20px;
+}
+
+.el-carousel img {
+  flex-shrink: 0;
+  width: 100%;
+  transform: translate(0, -20%);
+}
 </style>

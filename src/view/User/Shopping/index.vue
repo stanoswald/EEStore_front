@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-bar></nav-bar>
-    <el-main>
+    <el-main style="margin-bottom: 100px">
       <el-table
           :data="itemList"
           style="width: 100%"
@@ -48,7 +48,7 @@
       </el-table>
     </el-main>
     <div class="under-container">
-      总价:{{ sum }}
+      总价:￥{{ sum }}
       <el-button class="buy-btn" @click="buy">购买</el-button>
     </div>
   </div>
@@ -121,15 +121,20 @@ export default {
 .under-container{
   position: fixed;
   border: 1px solid grey;
+  background-color: #ffffff;
+  padding: 0;
   width: 100%;
-  height: 100px;
+  height: 70px;
   text-align: right;
-  font-size: 50px;
+  font-size: 30px;
   bottom: 0;
+  z-index: 20;
 }
 .buy-btn{
-  height: 100%;
-  width: 200px;
+  margin-right: 20px;
+  margin-top: 5px;
+  height: 80%;
+  width: 160px;
   background-color: red;
   border-radius: 0;
   font-size: 30px;

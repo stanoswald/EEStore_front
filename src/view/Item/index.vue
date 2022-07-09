@@ -107,7 +107,7 @@ export default {
       console.log("=============buy===================")
       console.log(token)
       console.log(itemIdList)
-      this.$router.push("/order/"+this.item.itemId)
+      this.$router.push({name:'createOrder'})
       // submitOrder(userId,itemIdList).then(response =>{
       //   if (response.data.code === 200){
       //     this.$message({
