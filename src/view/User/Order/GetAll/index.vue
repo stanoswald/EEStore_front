@@ -6,8 +6,8 @@
         <h3>全部订单</h3>
       </el-col>
       <el-col :span="10">
-        <el-card v-for="(order,key) in orderList" :key="key" @click="getOrderInfo(order.order_id)" style="margin-bottom: 10px">
-          {{order.title}}
+        <el-card v-for="(order,key) in orderList" :key="key" @click="getOrderInfo(order.order_id)" style="margin-top: 10px">
+          <h2>{{order.title}}</h2>
           <div style="width: 100%;">
             <img style="width: 100%" :src="order.cover"/>
           </div>
@@ -15,7 +15,8 @@
             ￥{{item.item_price}} ×{{item.item_count}}
           </el-row>
           总价:{{order.total_price}}
-          地址:{{order.address}}
+          <br/>
+          收货地址:{{order.address}}
           <div style="width: 100%;text-align: right">
             <el-button style="" @click="finish(order.order_id)">确认收货</el-button>
           </div>

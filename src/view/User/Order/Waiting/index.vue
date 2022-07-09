@@ -15,7 +15,7 @@
             ￥{{item.item_price}} ×{{item.item_count}}
           </el-row>
           总价:{{order.total_price}}
-          地址:{{order.address}}
+          收货地址:{{order.address}}
         </el-card>
       </el-col>
     </el-row>

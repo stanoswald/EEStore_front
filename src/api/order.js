@@ -62,3 +62,15 @@ export function getStatus(order_id) {
         data:{order_id}
     })
 }
+
+// 订单地址修改
+export function amendAddress(order_id,address) {
+    return request({
+        url: config.BASE_URL+`/user/api/order/modify_address`,
+        method: 'post',
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
+        data:{order_id,address}
+    })
+}

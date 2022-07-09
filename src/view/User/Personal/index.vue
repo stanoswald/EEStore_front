@@ -6,7 +6,7 @@
         <h2>订单管理</h2>
         <div style="margin-left: 30px;margin-top: 10px">
           <router-link :to="{name:'getAllOrder'}">
-            <el-button>已发货订单</el-button>
+            <el-button style="margin-bottom: 5px">已发货订单</el-button>
           </router-link>
           <br/>
           <router-link :to="{name:'getWaiting'}">
@@ -16,7 +16,7 @@
         <br/>
         <h2>账号管理</h2>
         <div style="margin-left: 30px;margin-top: 10px">
-          <el-button @click="dialogVisible = true">修改密码</el-button>
+          <el-button @click="dialogVisible = true" style="margin-bottom: 5px">修改密码</el-button>
           <br/>
           <el-button @click="logout">退出</el-button>
         </div>
